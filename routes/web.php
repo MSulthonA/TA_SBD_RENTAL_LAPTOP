@@ -38,12 +38,11 @@ Route::get('/tabel', function () {
 // });
 Route::get('/tabelpeminjaman', [PeminjamanController::class, 'tabelpeminjaman'])->name('tabelpeminjaman');
 Route::get('/tambahpeminjaman', [PeminjamanController::class, 'tambahpeminjaman'])->name('tambahpeminjaman');
-
-
-
-Route::get('add', [PeminjamanController::class, 'create'])->name('peminjaman.create');
-Route::post('store', [PeminjamanController::class, 'store'])->name('peminjaman.store');
-Route::get('/getindex', [PeminjamanController::class, 'index'])->name('peminjaman.index');
-Route::get('edit/{id}', [PeminjamanController::class, 'edit'])->name('peminjaman.edit');
-Route::post('update/{id}', [PeminjamanController::class,'update'])->name('peminjaman.update');
-Route::post('delete/{id}', [PeminjamanController::class,'delete'])->name('peminjaman.delete');
+Route::get('/test',function(){
+    return view('peminjaman.edit');
+});
+Route::get('/peminjaman/edit/{id}',[PeminjamanController::class,'edit'])->name('peminjaman.edit');
+Route::post('/peminjaman/update',[PeminjamanController::class,'update'])->name('peminjaman.update');
+Route::get('/delete/{id}', [PeminjamanController::class,'delete'])->name('peminjaman.delete');
+Route::get('/add',[PeminjamanController::class,'add'])->name('peminjaman.add');
+Route::post('/store',[PeminjamanController::class,'store'])->name('peminjaman.store');

@@ -16,8 +16,8 @@
               <div class="card-header border-0">
                 <h3 class="card-title">Data Peminjaman</h3>
                 <div class="card-tools">
-                  <button type="button" class="btn btn-danger">Tambah</button>
-                  </a>
+                  
+                  <a href="{{ route('peminjaman.add') }}"><button type="button" class="btn btn-danger">Tambah</button></a>
                 </div>
               </div>
               <div class="card-body table-responsive p-0">
@@ -29,7 +29,6 @@
                     <th>Harga Peminjaman</th>
                     <th>Denda</th>
                     <th>Status Peminjaman</th>
-                    <th>Status Pembayaran</th>
                     <th>Lama Peminjaman</th>
                     <th>Tanggal Peminjaman</th>
                     <th>Tanggal Pengembalian</th>
@@ -48,11 +47,6 @@
                     <td>{{ $row->denda }}</td>
                     <td>
                       {{ $row->status_peminjaman }}
-                      <button type="button" class="btn btn-outline-success">Edit</button>
-                    </td>
-                    <td>
-                      {{ $row->status_pembayaran }}
-                      <button type="button" class="btn btn-outline-success">Edit</button>
                     </td>
                     <td>
                       {{ $row->lama_peminjaman }}
@@ -65,8 +59,8 @@
                       {{ $row->tanggal_pengembalian}}
                     </td>
                     <td>
-                        <button type="button" class="btn btn-secondary">Edit</button>
-                        <button type="button" class="btn btn-danger">Delete</button>
+                        <a href="{{ route('peminjaman.edit',['id'=>$row->id_peminjaman]) }}"><button type="button" class="btn btn-secondary">Edit</button></a>
+                        <a href="{{ route('peminjaman.delete',['id'=>$row->id_peminjaman]) }}"><button type="button" class="btn btn-danger">Delete</button></a>
                     </td>
                   </tr>
                     @endforeach

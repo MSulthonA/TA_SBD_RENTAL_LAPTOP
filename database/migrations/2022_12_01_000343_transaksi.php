@@ -19,10 +19,10 @@ return new class extends Migration
             $table->unsignedBigInteger('id_peminjam');
             $table->unsignedBigInteger('id_laptop');
             $table->unsignedBigInteger('id_peminjaman');
-            $table->foreign('id_admin')->references('id_admin')->on('admin');
-            $table->foreign('id_peminjam')->references('id_peminjam')->on('peminjam');
-            $table->foreign('id_laptop')->references('id_laptop')->on('laptop');
-            $table->foreign('id_peminjaman')->references('id_peminjaman')->on('peminjaman');
+            $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade');
+            $table->foreign('id_peminjam')->references('id_peminjam')->on('peminjam')->onDelete('cascade');
+            $table->foreign('id_laptop')->references('id_laptop')->on('laptop')->onDelete('cascade');
+            $table->foreign('id_peminjaman')->references('id_peminjaman')->on('peminjaman')->onDelete('cascade');
             $table->timestamps();
         });
     }
@@ -34,6 +34,8 @@ return new class extends Migration
      */
     public function down()
     {
-        //
+        DB::statement('SET FOREIGN_KEY_CHECKS = 0');
+        Schema::dropIfExists('transaksi');
+        DB::statement('SET FOREIGN_KEY_CHECKS = 1');
     }
 };
