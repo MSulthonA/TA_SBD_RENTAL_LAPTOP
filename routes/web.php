@@ -1,6 +1,7 @@
 <?php
 
 use App\Http\Controllers\PeminjamanController;
+use App\Http\Controllers\LaptopController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -19,30 +20,22 @@ Route::get('/', function () {
 });
 
 Route::get('/admin', function () {
-    return view('tabel/administrator');
+    return view('administrator');
 });
 Route::get('/user', function () {
-    return view('tabel/user');
+    return view('user');
 });
-Route::get('/laptop', function () {
-    return view('tabel/laptop');
-});
-Route::get('/peminjaman', function () {
-    return view('tabel/peminjaman');
-});
-Route::get('/tabel', function () {
-    return view('layouts/tabel');
-});
-// Route::get('/table', function () {
-//     return view('layouts/table');
-// });
-Route::get('/tabelpeminjaman', [PeminjamanController::class, 'tabelpeminjaman'])->name('tabelpeminjaman');
-Route::get('/tambahpeminjaman', [PeminjamanController::class, 'tambahpeminjaman'])->name('tambahpeminjaman');
-Route::get('/test',function(){
-    return view('peminjaman.edit');
-});
+
+Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
+Route::get('/peminjaman/add', [PeminjamanController::class, 'add'])->name('peminjaman.add');
 Route::get('/peminjaman/edit/{id}',[PeminjamanController::class,'edit'])->name('peminjaman.edit');
 Route::post('/peminjaman/update',[PeminjamanController::class,'update'])->name('peminjaman.update');
-Route::get('/delete/{id}', [PeminjamanController::class,'delete'])->name('peminjaman.delete');
-Route::get('/add',[PeminjamanController::class,'add'])->name('peminjaman.add');
-Route::post('/store',[PeminjamanController::class,'store'])->name('peminjaman.store');
+Route::get('/peminjaman/delete/{id}', [PeminjamanController::class,'delete'])->name('peminjaman.delete');
+Route::post('/peminjaman/store',[PeminjamanController::class,'store'])->name('peminjaman.store');
+
+Route::get('/laptop', [LaptopController::class, 'index'])->name('laptop.index');
+Route::get('/laptop/add', [LaptopController::class, 'add'])->name('laptop.add');
+Route::get('/laptop/edit/{id}',[LaptopController::class,'edit'])->name('laptop.edit');
+Route::post('/laptop/update',[LaptopController::class,'update'])->name('laptop.update');
+Route::get('/laptop/delete/{id}', [LaptopController::class,'delete'])->name('laptop.delete');
+Route::post('/laptop/store',[LaptopController::class,'store'])->name('laptop.store');

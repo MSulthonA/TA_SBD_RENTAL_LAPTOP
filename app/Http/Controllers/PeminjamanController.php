@@ -8,17 +8,15 @@ use App\Models\Peminjaman;
 use Illuminate\Support\Facades\DB;
 use Illuminate\Support\Facades\Hash;
 
-
-
 class PeminjamanController extends Controller
 {
-    public function tabelpeminjaman(){
+    public function index(){
         $data = Peminjaman::all();
-        return view('layouts.table', compact('data'));
+        return view('peminjaman.index', compact('data'));
     }
     public function add()
     {
-        return view('peminjaman.tambah');
+        return view('peminjaman.add');
     }
     public function store(Request $request)
     {
@@ -44,16 +42,12 @@ class PeminjamanController extends Controller
         }catch(\Exception $e){
             return $e;
         }
-        return redirect()->route('tabelpeminjaman');
+        return redirect()->route('peminjaman.index');
     }
     public function delete(Request $request,$id)
     {
         $peminjamanSpesific = Peminjaman::where('id_peminjaman',$id)->delete();
-        return redirect()->route('tabelpeminjaman');
-    }
-    public function tambahpeminjaman(){
-        $data = Peminjaman::all();
-        return view('layouts.tablelayout.add', compact('data'));
+        return redirect()->route('peminjaman.index');
     }
     public function edit(Request $request,$id)
     {
@@ -83,6 +77,6 @@ class PeminjamanController extends Controller
         }catch(\Exception $e){
             return ;
         }
-        return redirect()->route('peminjaman.edit', ['id' =>$request->input('id_peminjaman')]);
+        return redirect()->route('peminjaman.index', ['id' =>$request->input('id_peminjaman')]);
     }
 }
