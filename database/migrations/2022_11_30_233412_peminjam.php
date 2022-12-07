@@ -3,7 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
-
+use Illuminate\Support\Facades\DB;
 return new class extends Migration
 {
     /**
@@ -14,7 +14,7 @@ return new class extends Migration
     public function up()
     {
         //
-        Schema::create('peminjam', function (Blueprint $table) {
+        Schema::create('users', function (Blueprint $table) {
             $table->id("id_peminjam");
             $table->string('username_peminjam',30);
             $table->string('nama_peminjam',30);
@@ -22,6 +22,7 @@ return new class extends Migration
             $table->string('password');
             $table->string('nomor_hp',15);
             $table->enum('jenis_kelamin_peminjam', ['Laki-Laki', 'Perempuan']);
+            $table->rememberToken();
             $table->timestamps();
         });
     }

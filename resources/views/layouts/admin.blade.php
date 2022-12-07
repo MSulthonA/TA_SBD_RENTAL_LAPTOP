@@ -15,6 +15,11 @@
     <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
     <!-- Theme style -->
     <link rel="stylesheet" href="{{ asset('template/dist/css/adminlte.min.css') }}">
+    <link rel="stylesheet" href="https://cdn.datatables.net/1.10.20/css/jquery.dataTables.min.css">
+    <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs4/dt-1.10.20/datatables.min.css"/>
+    <script src="https://code.jquery.com/jquery-3.3.1.js"></script>
+    <script src="https://cdn.datatables.net/1.10.20/js/jquery.dataTables.min.js"></script>
+
 </head>
 <!--
 `body` tag options:
@@ -232,12 +237,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
-                              <li class="nav-item">
-                                <a href="./transaksi" class="nav-link">
-                                    <i class="far fa-circle nav-icon"></i>
-                                    <p>Transaksi</p>
-                                </a>
-                            </li>
+                                <li class="nav-item">
+                                    <a href="./transaksi" class="nav-link">
+                                        <i class="far fa-circle nav-icon"></i>
+                                        <p>Transaksi</p>
+                                    </a>
+                                </li>
                                 <li class="nav-item">
                                     <a href="./administrator" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>
@@ -884,6 +889,10 @@
     <!-- REQUIRED SCRIPTS -->
 
     <!-- jQuery -->
+    <script>
+    $(document).ready(function() {
+    $('#table-data').DataTable();
+    } );
     <script src="{{ asset('template/plugins/jquery/jquery.min.js') }}"></script>
     <!-- Bootstrap -->
     <script src="{{ asset('template/plugins/bootstrap/js/bootstrap.bundle.min.js') }}"></script>

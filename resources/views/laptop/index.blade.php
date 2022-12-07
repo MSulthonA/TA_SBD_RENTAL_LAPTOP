@@ -1,6 +1,10 @@
 @extends('layouts.admin')
 
 @section('content')
+    
+<link rel="stylesheet" href="https://cdn.datatables.net/1.10.12/css/dataTables.bootstrap.min.css" />
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -22,7 +26,7 @@
         </div>
         <!-- /.content-header -->
         <div class="content">
-            <div class="container">
+            <div class="container ">
                 <div class="card">
                     <div class="card-header border-0">
                         <h3 class="card-title">Data Laptop</h3>
@@ -33,7 +37,7 @@
                         </div>
                     </div>
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-striped table-valign-middle">
+                        <table id="tabel-data" class="table table-striped table-valign-middle">
                             <thead>
 
                                 <tr>
@@ -79,4 +83,9 @@
         </div>
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        $(document).ready(function() {
+            $('#tabel-data').DataTable();
+        });
+    </script>
 @endsection

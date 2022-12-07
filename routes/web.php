@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\LaptopController;
+use App\Http\Controllers\LoginController;
 use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
@@ -47,3 +48,10 @@ Route::get('/transaksi/add', [TransaksiController::class, 'add'])->name('transak
 // Route::post('/transaksi/update',[TransaksiController::class,'update'])->name('transaksi.update');
 Route::get('/transaksi/delete/{id}', [TransaksiController::class,'delete'])->name('transaksi.delete');
 Route::post('/transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
+
+
+Route::get('/login',[LoginController::class,'login'])->name('login');
+Route::post('/loginuser',[LoginController::class,'loginuser'])->name('loginuser');
+
+Route::get('/register',[LoginController::class,'register'])->name('register');
+Route::post('/registeruser',[LoginController::class,'registeruser'])->name('registeruser');

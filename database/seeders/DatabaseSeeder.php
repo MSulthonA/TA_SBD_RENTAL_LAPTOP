@@ -6,6 +6,7 @@ use Illuminate\Support\Arr;
 use Illuminate\Support\Facades\DB;
 // use Illuminate\Database\Console\Seeds\WithoutModelEvents;
 use Illuminate\Database\Seeder;
+use Illuminate\Support\Str;
 
 class DatabaseSeeder extends Seeder
 {
@@ -50,13 +51,14 @@ class DatabaseSeeder extends Seeder
         }
         foreach (range(1,10) as $index) { 
             $tanggal = $faker->dateTimeInInterval('-1 week');
-            DB::table('peminjam')->insert([
+            DB::table('users')->insert([
                 'username_peminjam' => "usernamePeminjam".$index,
-                'password' => "password",
+                'password' => bcrypt("password"),
                 'nomor_hp'=>"62".$faker->randomNumber(8),
                 'alamat_peminjam'=>$faker->address(),
                 'nama_peminjam' => $faker->name(),
                 'jenis_kelamin_peminjam' => Arr::random($jenis_kelamin),
+                'remember_token' => Str::random(60),
                 'created_at' => $tanggal,
                 'updated_at' => $tanggal
             ]);

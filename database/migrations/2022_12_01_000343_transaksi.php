@@ -3,6 +3,7 @@
 use Illuminate\Database\Migrations\Migration;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Support\Facades\Schema;
+use Illuminate\Support\Facades\DB;
 
 return new class extends Migration
 {
@@ -20,7 +21,7 @@ return new class extends Migration
             $table->unsignedBigInteger('id_laptop');
             $table->unsignedBigInteger('id_peminjaman');
             $table->foreign('id_admin')->references('id_admin')->on('admin')->onDelete('cascade');
-            $table->foreign('id_peminjam')->references('id_peminjam')->on('peminjam')->onDelete('cascade');
+            $table->foreign('id_peminjam')->references('id_peminjam')->on('users')->onDelete('cascade');
             $table->foreign('id_laptop')->references('id_laptop')->on('laptop')->onDelete('cascade');
             $table->foreign('id_peminjaman')->references('id_peminjaman')->on('peminjaman')->onDelete('cascade');
             $table->softDeletes();

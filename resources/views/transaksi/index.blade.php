@@ -1,6 +1,8 @@
 @extends('layouts.admin')
 
 @section('content')
+    <script src="https://code.jquery.com/jquery-3.1.0.js"></script>
+    <script src="//cdn.datatables.net/1.10.12/js/jquery.dataTables.min.js"></script>
     <!-- Content Wrapper. Contains page content -->
     <div class="content-wrapper">
         <!-- Content Header (Page header) -->
@@ -8,7 +10,7 @@
             <div class="container-fluid">
                 <div class="row mb-2">
                     <div class="col-sm-6">
-                        <h1 class="m-0">Tabel Peminjaman</h1>
+                        <h1 class="m-0">Tabel Transaksi</h1>
                     </div><!-- /.col -->
                     <div class="col-sm-6">
                         <ol class="breadcrumb float-sm-right">
@@ -34,7 +36,7 @@
                         </div>
                     </div>
                     <div class="card-body table-responsive p-0">
-                        <table class="table table-striped table-valign-middle">
+                        <table id="tabel-data" class="table table-striped table-valign-middle">
                             <thead>
 
                                 <tr>
@@ -53,7 +55,7 @@
                                         </td>
                                         <td>{{ $row->peminjam->nama_peminjam }}</td>
                                         <td>
-                                            {{ $row->laptop->nama_laptop}}
+                                            {{ $row->laptop->nama_laptop }}
                                         </td>
                                         <td>
                                             Harga : {{ $row->peminjaman->harga_peminjaman }} <br>
@@ -64,7 +66,7 @@
                                         <td>
                                             {{-- <a href="{{ route('transaksi.edit',['id'=>$row->id_transaksi]) }}"><button
                                                     type="button" class="btn btn-secondary">Edit</button></a> --}}
-                                            <a href="{{ route('transaksi.delete',['id'=>$row->id_transaksi]) }}"><button
+                                            <a href="{{ route('transaksi.delete', ['id' => $row->id_transaksi]) }}"><button
                                                     type="button" class="btn btn-danger">Soft Delete</button></a>
                                         </td>
                                     </tr>
@@ -79,4 +81,9 @@
         </div>
     </div>
     <!-- /.content-wrapper -->
+    <script>
+        $(document).ready(function() {
+            $('#tabel-data').DataTable();
+        });
+    </script>
 @endsection
