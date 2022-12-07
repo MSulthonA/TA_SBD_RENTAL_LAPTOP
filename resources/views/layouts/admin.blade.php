@@ -232,6 +232,12 @@
                                 </p>
                             </a>
                             <ul class="nav nav-treeview">
+                              <li class="nav-item">
+                                <a href="./transaksi" class="nav-link">
+                                    <i class="far fa-circle nav-icon"></i>
+                                    <p>Transaksi</p>
+                                </a>
+                            </li>
                                 <li class="nav-item">
                                     <a href="./administrator" class="nav-link">
                                         <i class="far fa-circle nav-icon"></i>

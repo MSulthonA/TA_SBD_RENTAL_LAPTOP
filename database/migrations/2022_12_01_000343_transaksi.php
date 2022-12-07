@@ -23,6 +23,7 @@ return new class extends Migration
             $table->foreign('id_peminjam')->references('id_peminjam')->on('peminjam')->onDelete('cascade');
             $table->foreign('id_laptop')->references('id_laptop')->on('laptop')->onDelete('cascade');
             $table->foreign('id_peminjaman')->references('id_peminjaman')->on('peminjaman')->onDelete('cascade');
+            $table->softDeletes();
             $table->timestamps();
         });
     }

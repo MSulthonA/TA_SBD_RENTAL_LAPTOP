@@ -2,6 +2,7 @@
 
 use App\Http\Controllers\PeminjamanController;
 use App\Http\Controllers\LaptopController;
+use App\Http\Controllers\TransaksiController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -39,3 +40,10 @@ Route::get('/laptop/edit/{id}',[LaptopController::class,'edit'])->name('laptop.e
 Route::post('/laptop/update',[LaptopController::class,'update'])->name('laptop.update');
 Route::get('/laptop/delete/{id}', [LaptopController::class,'delete'])->name('laptop.delete');
 Route::post('/laptop/store',[LaptopController::class,'store'])->name('laptop.store');
+
+Route::get('/transaksi', [TransaksiController::class, 'index'])->name('transaksi.index');
+Route::get('/transaksi/add', [TransaksiController::class, 'add'])->name('transaksi.add');
+// Route::get('/transaksi/edit/{id}',[TransaksiController::class,'edit'])->name('transaksi.edit');
+// Route::post('/transaksi/update',[TransaksiController::class,'update'])->name('transaksi.update');
+Route::get('/transaksi/delete/{id}', [TransaksiController::class,'delete'])->name('transaksi.delete');
+Route::post('/transaksi/store',[TransaksiController::class,'store'])->name('transaksi.store');
