@@ -9,6 +9,10 @@ class Laptop extends Model
 {
     use HasFactory;
     protected $table = 'laptop';
+    public function transaksi(){
+        return $this->hasMany('App\Models\Transaksi','id_laptop');
+    }
+
     protected $fillable = [
         'nama_laptop',
         'tipe_laptop',

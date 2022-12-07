@@ -9,6 +9,9 @@ class Peminjaman extends Model
 {
     use HasFactory;
     protected $table = 'peminjaman';
+    public function transaksi(){
+        return $this->hasMany('App\Models\Transaksi','id_peminjaman');
+    }
     protected $fillable = [
         'harga_peminjaman',
         'status_peminjaman',
