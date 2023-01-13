@@ -18,14 +18,12 @@ use Illuminate\Support\Facades\Route;
 */
 
 Route::get('/', function () {
-    return view('dashboard');
+    return view('login');
 });
 
-Route::get('/admin', function () {
-    return view('administrator');
-});
-Route::get('/user', function () {
-    return view('user');
+
+Route::get('/dashboard', function () {
+    return view('dashboard');
 });
 
 Route::get('/peminjaman', [PeminjamanController::class, 'index'])->name('peminjaman.index');
@@ -51,7 +49,9 @@ Route::post('/transaksi/store',[TransaksiController::class,'store'])->name('tran
 
 
 Route::get('/login',[LoginController::class,'login'])->name('login');
-Route::post('/loginuser',[LoginController::class,'loginuser'])->name('loginuser');
+Route::post('/loginuser',[LoginController::class,'loginuser'])->name('loginuser')->middleware('guest');
 
 Route::get('/register',[LoginController::class,'register'])->name('register');
 Route::post('/registeruser',[LoginController::class,'registeruser'])->name('registeruser');
+
+Route::post('/logout',[LoginController::class,'logout'])->name('logout');

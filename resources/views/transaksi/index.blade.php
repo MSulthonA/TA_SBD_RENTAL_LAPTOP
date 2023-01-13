@@ -51,17 +51,17 @@
                                 @foreach ($data as $row)
                                     <tr>
                                         <td>
-                                            {{ $row->admin->nama_admin }}
+                                            {{ $row->nama_admin }}
                                         </td>
-                                        <td>{{ $row->peminjam->nama_peminjam }}</td>
+                                        <td>{{ $row->nama_peminjam }}</td>
                                         <td>
-                                            {{ $row->laptop->nama_laptop }}
+                                            {{ $row->nama_laptop }}
                                         </td>
                                         <td>
-                                            Harga : {{ $row->peminjaman->harga_peminjaman }} <br>
-                                            Denda : {{ $row->peminjaman->denda }} <br>
-                                            Status Peminjaman : {{ $row->peminjaman->status_peminjaman }} <br>
-                                            Status Pembayaran : {{ $row->peminjaman->status_pembayaran }}
+                                            Harga : {{ $row->harga_peminjaman }} <br>
+                                            Denda : {{ $row->denda }} <br>
+                                            Status Peminjaman : {{ $row->status_peminjaman }} <br>
+                                            Status Pembayaran : {{ $row->status_pembayaran }}
                                         </td>
                                         <td>
                                             {{-- <a href="{{ route('transaksi.edit',['id'=>$row->id_transaksi]) }}"><button
